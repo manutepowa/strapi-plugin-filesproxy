@@ -1,23 +1,20 @@
 {
   "name": "strapi-plugin-filesproxy",
-  "version": "0.0.0",
-  "description": "This is the description of the plugin.",
+  "version": "0.0.1",
+  "description": "Plugin that download production files for each request to API in local development.",
   "strapi": {
     "name": "strapi-plugin-filesproxy",
-    "icon": "plug",
-    "description": "Description of strapi-plugin-filesproxy plugin."
+    "icon": "plug"
   },
   "dependencies": {},
   "author": {
-    "name": "A Strapi developer",
-    "email": "",
-    "url": ""
+    "email": "manutepowa@gmail.com",
+    "name": "Manuel Tercero"
   },
   "maintainers": [
     {
-      "name": "A Strapi developer",
-      "email": "",
-      "url": ""
+      "email": "manutepowa@gmail.com",
+      "name": "Manuel Tercero"
     }
   ],
   "engines": {

@@ -16,7 +16,6 @@ const mapMediaFields = (attributes) => {
 
 const fetchFiles = async (files) => {
   const {site} = strapi.config.middleware.settings.filesproxy
-
   files.forEach(file => {
     if (file === null) return
     // file.url = '/uploads/image_a7d35d57b3.jpg'
@@ -55,7 +54,6 @@ module.exports = () => {
   return {
     initialize() {
       strapi.router.get('*', async (ctx, next) => {
-        console.log("ASDAS");
         await next();
         if (_.isEmpty(ctx.body) || ctx.status === 404 || ctx.request.route === undefined) return;
 
