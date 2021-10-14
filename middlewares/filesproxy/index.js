@@ -29,12 +29,16 @@ const fetchFiles = async (files) => {
         method: 'GET'
       }, function (response) {
         const data = new Stream()
+        if(response.statusCode !== 200) return
         response.on('data', function (chunk) {
           data.push(chunk)
         })
         response.on('end', function () {
           fs.writeFileSync(fileURL, data.read())
         })
+        response.on('error', (e) => {
+          console.error(e);
+        });
       }).end()
     }
   });
@@ -50,6 +54,7 @@ const prepareRowFields = (mediaFields, row) => {
     await fetchFiles(files)
   })
 }
+
 module.exports = () => {
   return {
     initialize() {
