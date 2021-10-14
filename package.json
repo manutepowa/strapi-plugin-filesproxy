@@ -1,0 +1,25 @@
+{
+  "name": "strapi-middleware-filesproxy",
+  "version": "1.0.0",
+  "description": "Download production files from local development",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manutepowa/strapi-middleware-filesproxy.git"
+  },
+  "author": {
+    "email": "manutepowa@gmail.com",
+    "name": "Manuel Tercero"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manutepowa/strapi-middleware-filesproxy/issues"
+  },
+  "homepage": "https://github.com/manutepowa/strapi-middleware-filesproxy#readme"
+}
