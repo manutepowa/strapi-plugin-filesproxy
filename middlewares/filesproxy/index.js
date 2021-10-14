@@ -21,15 +21,17 @@ const fetchFiles = async (files) => {
     // file.url = '/uploads/image_a7d35d57b3.jpg'
     const fileURL = 'public/'+file.url
     if (!fs.existsSync(fileURL)) {
-      console.log(file.url);
-      https.request({
+      const options = {
         hostname: site,
         port: 443,
         path: file.url,
         method: 'GET'
-      }, function (response) {
+      }
+      https.request(options, function (response) {
         const data = new Stream()
+
         if(response.statusCode !== 200) return
+
         response.on('data', function (chunk) {
           data.push(chunk)
         })
