@@ -1,10 +1,14 @@
 {
   "name": "strapi-plugin-filesproxy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Plugin that download production files for each request to API in local development.",
   "strapi": {
     "name": "strapi-plugin-filesproxy",
     "icon": "plug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:manutepowa/strapi-plugin-filesproxy.git"
   },
   "dependencies": {},
   "author": {
@@ -14,7 +18,8 @@
   "maintainers": [
     {
       "email": "manutepowa@gmail.com",
-      "name": "Manuel Tercero"
+      "name": "Manuel Tercero",
+      "url": "https://github.com/manutepowa"
     }
   ],
   "engines": {
