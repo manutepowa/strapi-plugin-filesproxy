@@ -14,17 +14,14 @@ const mapMediaFields = (attributes) => {
   return mediaFields
 }
 
-const fetchFiles = async (files) => {
-  const {site} = strapi.config.middleware.settings.filesproxy
+const fetchFiles = async (files, site) => {
   files.forEach(file => {
-    if (file === null) return
-    // file.url = '/uploads/image_a7d35d57b3.jpg'
-    const fileURL = 'public/'+file.url
+    const fileURL = 'public/'+file
     if (!fs.existsSync(fileURL)) {
       const options = {
         hostname: site,
         port: 443,
-        path: file.url,
+        path: file,
         method: 'GET'
       }
       https.request(options, function (response) {
@@ -43,6 +40,20 @@ const fetchFiles = async (files) => {
         });
       }).end()
     }
+  })
+}
+
+const prepareFilesAndFormat = async (files) => {
+  const {site} = strapi.config.middleware.settings.filesproxy
+
+  files.forEach(async file => {
+    if (file === null) return
+    file.url = '/uploads/image_a7d35d57b3.jpg'
+    const filesWithFormats = file.formats === null
+      ? [file.url]
+      : [file.url, ...Object.values(file.formats).map(format => format.url)]
+
+    await fetchFiles(filesWithFormats, site)
   });
 }
 
@@ -53,7 +64,7 @@ const prepareRowFields = (mediaFields, row) => {
       ? row[name]
       : [row[name]]
 
-    await fetchFiles(files)
+    await prepareFilesAndFormat(files)
   })
 }
 
