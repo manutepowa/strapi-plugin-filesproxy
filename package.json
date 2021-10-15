@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-filesproxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plugin that download production files for each request to API in local development.",
   "strapi": {
     "name": "strapi-plugin-filesproxy",
