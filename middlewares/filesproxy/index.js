@@ -48,7 +48,6 @@ const prepareFilesAndFormat = async (files) => {
 
   files.forEach(async file => {
     if (file === null) return
-    file.url = '/uploads/image_a7d35d57b3.jpg'
     const filesWithFormats = file.formats === null
       ? [file.url]
       : [file.url, ...Object.values(file.formats).map(format => format.url)]
